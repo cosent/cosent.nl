@@ -11,8 +11,8 @@ baseurl: /
 # Website info
 title: Cosent
 description: Digitale Transformatie
-cover: assets/images/blog-cover.jpg
-logo: assets/images/blog-icon.png
+cover: assets/theme_images/blog-cover.jpg
+logo: assets/theme_images/logomain.png
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
 CNAME: #add cname for website to be created

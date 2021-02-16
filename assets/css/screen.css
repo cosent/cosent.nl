@@ -164,7 +164,7 @@ dt {
 .site-title {
     z-index: 10;
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px 0;
     font-size: 3.8rem;
     font-weight: 700;
 }
