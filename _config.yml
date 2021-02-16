@@ -13,8 +13,8 @@ title: Cosent
 description: Digitale Transformatie
 cover: assets/theme_images/blog-cover.jpg
 logo: assets/theme_images/logomain.png
-logo_dark: assets/images/favicon.png
-favicon: assets/images/favicon.png
+logo_dark: assets/theme_images/favicon.png
+favicon: assets/theme_images/favicon.png
 CNAME: #add cname for website to be created
 
 # Social info
