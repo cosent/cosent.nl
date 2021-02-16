@@ -31,7 +31,11 @@ logo: 'assets/images/ghost.png'
                         <div class="author-location">{{ author[1].location }} <span class="bull">&bull;</span></div>
                     {% endif %}
                     <div class="author-stats">
+                    {% if site.language=='nl-nl'%}
+                        {% if paginator.total_posts == 0 %}Geen artikelen{% elsif paginator.total_posts == 1 %}1 artikel{% else %}{{ paginator.total_posts }} artikelen{% endif %} <span class="bull">&bull;</span>
+                    {% else %}
                         {% if paginator.total_posts == 0 %}No posts{% elsif paginator.total_posts == 1 %}1 post{% else %}{{ paginator.total_posts }} posts{% endif %} <span class="bull">&bull;</span>
+                    {% endif %}
                     </div>
                     {% if author[1].url %}
                         <a class="social-link social-link-wb" href="{{ author[1].url_full }}" target="_blank" rel="noopener">{% include website.html %}</a>

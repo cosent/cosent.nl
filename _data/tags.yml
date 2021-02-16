@@ -1,12 +1,24 @@
-IoT:
-  name: IoT
-  description: Internet of Things
-  cover: False
-4IR:
-  name: 4IR
-  description: 4e Industriele Revolutie
-  cover: False
 agile:
   name: agile
+  description: False
+  cover: False
+km:
+  name: km
+  description: kennismanagement
+  cover: False
+dex:
+  name: dex
+  description: Digital Employee Experience
+  cover: False
+iot:
+  name: iot
+  description: Internet of Things
+  cover: False
+4ir:
+  name: 4ir
+  description: 4e Industriele Revolutie
+  cover: False
+blockchain:
+  name: blockchain
   description: False
   cover: False

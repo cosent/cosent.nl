@@ -5,7 +5,7 @@ cover:  assets/images/default.jpg
 navigation: True
 title: Lorem Ipsum
 date: 2021-02-16 10:00:00
-tags: 4IR
+tags: 4IR agile
 class: post-template
 subclass: 'post'
 author: guido

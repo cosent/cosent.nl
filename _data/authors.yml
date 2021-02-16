@@ -3,8 +3,8 @@ guido:
   name: Guido Stevens
   url_full: https://linkedin.com/in/guidostevens
   url: linkedin.com/in/guidostevens
-  bio: bla bla
+  bio: Guido Stevens is IT ondernemer en lector digitale transformatie.
   picture: assets/theme_images/Guido_circle.png
   facebook: False
   twitter: guidostevens
-  cover: False
+  cover: assets/theme_images/speedlights.jpg

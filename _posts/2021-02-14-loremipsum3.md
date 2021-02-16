@@ -5,7 +5,7 @@ cover:  assets/images/default.jpg
 navigation: True
 title: Lorem Ipsum 3
 date: 2021-02-14 10:00:00
-tags: IoT
+tags: IoT agile
 class: post-template
 subclass: 'post'
 author: guido
