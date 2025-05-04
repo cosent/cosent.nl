@@ -60,21 +60,21 @@ en:
       name: "External"
       url: "https://cncf.io?ref=dot-org"
       weight: 5
-es:
-  languageName: Spanish
-  contentDir: content/es
+nl:
+  languageName: Nederlands
+  contentDir: content/nl
   weight: 2
-  title: "Título del Sitio"
+  title: "Cosent"
   params:
-    description: "Descripción del Sitio"
+    description: "Hier komt een beschrijving"
   menu:
     main:
     - identifier: "about"
-      name: "Acerca de"
+      name: "Over"
       url: "/example-page/"
       weight: 1
     - identifier: "child-1"
-      name: "Página Hija de Ejemplo"
+      name: "Voorbeeld"
       url: "/example-page/"
       weight: 1
       parent: "about"
