@@ -1,7 +1,16 @@
 .PHONY: bootstrap start
 
+
+dev: start
+prod: build
+
 start:
 	npm run dev:start
+	# npm run dev:start:with-pagefind
+
+build:
+	npm run build
+	npx -y pagefind --site public
 
 bootstrap:
 	mkdir -p themes
