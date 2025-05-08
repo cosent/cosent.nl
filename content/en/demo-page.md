@@ -2,6 +2,7 @@
 title: Demo Elements Page
 description: A demo page for the various markup elements in the Dot Org theme.
 images: ["https://via.placeholder.com/250x200/d9d9d9/000000"]
+draft: true
 ---
 
 This is a demo page, designed to show you the various elements of the theme and how they sit together.

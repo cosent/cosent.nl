@@ -3,4 +3,6 @@ title: "Blog"
 description: ""
 ---
 
-Welcome to our blog.
+{{< intro >}}
+Software Architecture &amp; Engineering in Plone and Quaive.
+{{< /intro >}}

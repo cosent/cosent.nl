@@ -9,12 +9,12 @@ en:
     ### accessibility ###
     accessibility:
       skip_text: "Skip to content"
-      help_text: "Accessibility Statement"
-      help_url: "/example-page/"
+      # help_text: "Accessibility Statement"
+      # help_url: "/example-page/"
     ### calls to action ###
     main_cta:
       text: "Contact"
-      link: "/example-page/"
+      link: "/contact/"
     footer_cta:
       # text: "Join us"
       # link: "/example-page/"
@@ -24,7 +24,7 @@ en:
     main:
     - identifier: "services"
       name: "Services"
-      url: "/demo-page/"
+      url: "/services/"
       weight: 1
     - identifier: "blog"
       name: "Blog"
@@ -32,54 +32,36 @@ en:
       weight: 2
     - identifier: "about"
       name: "About"
-      url: "/example-page/"
+      url: "/about/"
       weight: 4
-    - identifier: "child-1"
-      name: "Company"
-      url: "/example-page/"
-      weight: 2
-      post: "Aenean commodo ligula get dolor. Aenean massa."
-      parent: "about"
-    - identifier: "child-2"
-      name: "Presentations"
-      url: "/example-page/"
-      weight: 2
-      post: "Aenean commodo ligula get dolor. Aenean massa."
-      parent: "about"
-    - identifier: "child-3"
-      name: "Publications"
-      url: "https://cncf.io?ref=dot-org"
-      weight: 3
-      post: "Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo."
-      parent: "about"
     - identifier: "quaive"
       name: "Quaive"
       url: "https://quaive.com"
       weight: 5
 
-nl:
-  languageName: Nederlands
-  contentDir: content/nl
-  weight: 2
-  title: "Cosent"
-  params:
-    description: "Hier komt een beschrijving"
-  menu:
-    main:
-    - identifier: "about"
-      name: "Over"
-      url: "/example-page/"
-      weight: 1
-    - identifier: "child-1"
-      name: "Voorbeeld"
-      url: "/example-page/"
-      weight: 1
-      parent: "about"
-    - identifier: "faq"
-      name: "FAQs"
-      url: "/faq/"
-      weight: 3
-    - identifier: "blog"
-      name: "Blog"
-      url: "/blog/"
-      weight: 2
+# nl:
+#   languageName: Nederlands
+#   contentDir: content/nl
+#   weight: 2
+#   title: "Cosent"
+#   params:
+#     description: "Hier komt een beschrijving"
+#   menu:
+#     main:
+#     - identifier: "about"
+#       name: "Over"
+#       url: "/example-page/"
+#       weight: 1
+#     - identifier: "child-1"
+#       name: "Voorbeeld"
+#       url: "/example-page/"
+#       weight: 1
+#       parent: "about"
+#     - identifier: "faq"
+#       name: "FAQs"
+#       url: "/faq/"
+#       weight: 3
+#     - identifier: "blog"
+#       name: "Blog"
+#       url: "/blog/"
+#       weight: 2
