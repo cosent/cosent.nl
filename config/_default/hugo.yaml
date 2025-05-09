@@ -30,3 +30,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+######################## github pages #######################
+caches:
+  images:
+    dir: :cacheDir/images
