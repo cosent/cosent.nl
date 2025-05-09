@@ -6,9 +6,12 @@ prod: build
 
 start:
 	npm run dev:start
-	# npm run dev:start:with-pagefind
+
+search:
+	npm run dev:start:with-pagefind
 
 build:
+	rm -rf public/*
 	npm run build
 	npx -y pagefind --site public
 
