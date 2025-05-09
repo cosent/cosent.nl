@@ -72,7 +72,7 @@ jobs:
             --cacheDir "${{ runner.temp }}/hugo_cache" \
             && npm_config_yes=true npx pagefind \
             --site 'public' \
-            --output-subdir '../static/pagefind'
+            --output-subdir 'pagefind'
       - name: Cache Save
         id: cache-save
         uses: actions/cache/save@v4
