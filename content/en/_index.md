@@ -1,6 +1,6 @@
 ---
 title: Cosent
-description: Deep Expertise in Quaive & Plone
+description: Cosent realizes high-quality full-stack solutions in Quaive and Plone. We have decades of experience with DevOps and the Zope Component Architecture.
 showHeader: false
 ---
 
