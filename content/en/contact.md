@@ -3,6 +3,10 @@ title: Contact
 description:
 ---
 
+{{< intro >}}
+Please give us a call at +31 654 355 636 to set up a meeting.
+{{< /intro >}}
+
 {{< cards count=3 >}}
 {{< card >}}
 ## Address
@@ -13,7 +17,7 @@ NL The Netherlands {{< br >}}
 {{< /card >}}
 {{< card >}}
 ### Phone
-+31.654355636 
++31 . 654 355 636 
 ### Email
 [website@cosent.nl](mailto:website@cosent.nl)
 {{< /card >}}

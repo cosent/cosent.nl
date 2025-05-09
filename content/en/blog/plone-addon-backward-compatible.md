@@ -1,7 +1,7 @@
 ---
 title: "Creating a Plone 6 add-on that is Python 2.7 backward compatible"
 description: ""
-date: 2025-05-11
+date: 2025-05-09
 author: guidostevens
 ---
 
@@ -51,7 +51,7 @@ Plus, of course, the Collabora user experience is much more slick than External 
 ## Bootstrapping the package
 
 I evaluated a number of ways to bootstrap the add-on python package.
-From the options listed below, in the end I chose to go with [Cookieplone](https://github.com/plone/cookieplone).
+From the options listed below, in the end I chose to go with [PloneCLI](https://pypi.org/project/plonecli/).
 
 ### Key references
 
@@ -70,7 +70,7 @@ From the options listed below, in the end I chose to go with [Cookieplone](https
 
 2.  Pytest
 
-    [Pytest versus unittest](https://builtin.com/data-science/pytest-vs-unittest): it&rsquo;s not a big deal to write tests in [pytest](https://docs.pytest.org/en/stable/).
+    [Pytest versus unittest](https://builtin.com/data-science/pytest-vs-unittest): it's not a big deal to write tests in [pytest](https://docs.pytest.org/en/stable/).
     In Plone projects, [pytest-plone](https://pypi.org/project/pytest-plone/) provides plone layer support for pytest (for an example see cookiecutter-plone)
 
 3.  Github Actions
@@ -83,7 +83,7 @@ From the options listed below, in the end I chose to go with [Cookieplone](https
 Alessandro creates his packages manually. That's always an option, but I prefer the convenience of a batteries-included template, if possible.
 
 
-### Minimalistic: Pyscaffold
+### Pyscaffold
 
 [Pyscaffold](https://pyscaffold.org/en/latest/index.html) is a generic high-quality Python package generator. 
 Includes `pytest` based tests outside of `src`.
@@ -130,9 +130,9 @@ Includes `pytest` based tests outside of `src`.
 
 Use this for non-Plone packages.
 
-### Plone: PloneCLI
+### PloneCLI
 
-PloneCLI provides mr.bob templates, which is great for Plone projects.
+[PloneCLI](https://pypi.org/project/plonecli/) provides mr.bob templates, which is great for Plone projects.
 Includes `unittest` based tests within `src`
 
 1.  Downsides
@@ -170,8 +170,7 @@ Best match for Plone Classic projects.
 
 ### Cookieplone
 
-[Cookieplone](https://github.com/plone/cookieplone) provides a `backend_addon` template that emits a valid package.
-I guess this is the backend part of cookiecutter-plone-starter?
+[Cookieplone](https://pypi.org/project/cookieplone/) provides a `backend_addon` template that emits a valid package.
 
 1.  Downsides
 
@@ -193,7 +192,7 @@ I guess this is the backend part of cookiecutter-plone-starter?
         cd collective.collabora
         tox
 
-Since I'm not interested in creating content types, but want to create browser views and prefer the more traditional buildout and zope testrunner, this is not a good match.
+Since I'm not interested in creating content types, but want to create browser views and prefer the more traditional buildout and zope testrunner, this is not a good match for this project.
 
 ### Cookiecutter-plone-starter
 
@@ -208,6 +207,8 @@ Since I'm not interested in creating content types, but want to create browser v
         pipenv run cookiecutter gh:collective/cookiecutter-plone-starter
 
 Since we're doing Plone Classic here, not React, that's not a good match.
+
+Oh, and meanwhile this approach has been [deprecated](https://github.com/collective/cookiecutter-plone-starter/commit/8437a936e2a5d12e8d24383e4d9376bf6b552923).
 
 ## Development environment
 
@@ -294,8 +295,12 @@ extras =
     test
 
 commands =
-    {envbindir}/buildout -q -c {toxinidir}/{env:version_file} buildout:directory={envdir} buildout:develop={toxinidir} bootstrap
-    {envbindir}/buildout -n -qq -c {toxinidir}/{env:version_file} buildout:directory={envdir} buildout:develop={toxinidir} install test
+    {envbindir}/buildout -q -c {toxinidir}/{env:version_file} \
+        buildout:directory={envdir} buildout:develop={toxinidir} \
+        bootstrap
+    {envbindir}/buildout -n -qq -c {toxinidir}/{env:version_file} \
+        buildout:directory={envdir} buildout:develop={toxinidir} \
+        install test
     coverage run {envbindir}/test -v1 --auto-color {posargs}
     coverage report -m
 
@@ -339,8 +344,12 @@ To get a specific development environment up and running, these are the steps ex
 
     tox --devenv ./dev61 -e py312-Plone61
     ./dev61/bin/pip install -r requirements_plone61.txt
-	./dev61/bin/buildout -c ./dev_plone61.cfg buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) bootstrap
-	./dev61/bin/buildout -c ./dev_plone61.cfg buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) install
+	./dev61/bin/buildout -c ./dev_plone61.cfg \
+        buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
+        bootstrap
+	./dev61/bin/buildout -c ./dev_plone61.cfg \
+        buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
+        install
     ./dev61/bin/instance fg
 
 The main additional trick I performed for the development configurations, is to each put them on a distinct port, so that I can easily run the stack in four different version flavours, each in its own browser tab. `dev_plone61.cfg` configures Plone61 to run on `:6180`:
@@ -676,7 +685,7 @@ class IStoredFile(Interface):
 ```
 
 This follows the Dexterity interface contract for interacting with files.
-I then created and registered adapters for this interface.
+I then created and registered [adapters for this interface](https://github.com/collective/collective.collabora/blob/main/src/collective/collabora/adapters.py).
 
 
 ```python
@@ -738,7 +747,7 @@ class TestCoolWopiAT(TestCoolWOPI):
 #### Varying the ZCA configuration within a test
 
 The tests are made aware of whether they're testing Archetypes or Dexterity.
-In `testing.py`:
+In [testing.py](https://github.com/collective/collective.collabora/blob/61d1e62e4ddde9c7fa7e81466bea0945cc763f76/src/collective/collabora/testing.py#L111):
 
 ```python
 class IntegrationTesting(BaseIntegrationTesting):
@@ -784,7 +793,8 @@ because of breakage elsewhere in the stack. Since these tests are already
 executed in other Plone/Python versions, I was comfortable skipping some.
 
 ```python
-@unittest.skipIf(utils.IS_PLONE4, "Archetypes is too convoluted to support fixture")
+@unittest.skipIf(utils.IS_PLONE4, 
+                 "Archetypes is too convoluted to support fixture")
 @mock.patch("requests.get")
 def test__call__editor_url_invalid_mimetype(self, requests_get):
 ...
@@ -802,12 +812,12 @@ For `collective.collabora` I chose to initialize the package using PloneCLI. I t
 
 Now the challenge is, to consistently release this package in such a way, that it also builds correctly on all these versions, especially also on the ancient Python 2.7 Plone 4.3 buildout.
 
-In the past months (winter 2025), we&rsquo;ve seen tons of breakage in the build chain. Setuptools keeps shifting the goalposts. Building a project now with the current setuptools, will build `collective_collabora` with an underscore instead of `collective.collabora`.
+In the past months (winter 2025), we've seen tons of breakage in the build chain. Setuptools keeps shifting the goalposts. Building a project now with the current setuptools, will build `collective_collabora` with an underscore instead of `collective.collabora`.
 
 
 ### Goal
 
-Normally I&rsquo;d use `zest.releaser` to release packages. The initial 0.9.0 release of collective.collabora was done manually by Alessandro. Let&rsquo;s see if I can:
+Normally I'd use `zest.releaser` to release packages. The initial 0.9.0 release of collective.collabora was done manually by Alessandro. Let's see if I can:
 
 -   test the currently released egg, by removing mr.developer from the dev envs
 -   get a working testpypi roundtrip using zest.releaser that works in all dev envs
@@ -845,7 +855,7 @@ Ouch. Not so good.
 
 ### Switch to manual build and upload
 
-That&rsquo;s [documented on Twine](https://twine.readthedocs.io/en/stable/).
+That's [documented on Twine](https://twine.readthedocs.io/en/stable/).
 
 #### Fix the namespace error
 
@@ -903,7 +913,8 @@ Resulting `.pypirc` stanza:
 
 Upload. Wheel gives a `200 OK` but .tar.gz gives a `400 Bad Request`:
 
-    400 The description failed to render in the default format of reStructuredText. See <https://test.pypi.org/help/#description-content-type    for more information.
+    400 The description failed to render in the default format of reStructuredText. 
+    See <https://test.pypi.org/help/#description-content-type> for more information.
 
 #### Fix the RestructuredText problem
 
@@ -976,7 +987,7 @@ Verify the right egg is built in:
 
 `❯❯ head egg*/bin/instance`
 
-It&rsquo;s not. But I had already seen that from the version pinning output.
+It's not. But I had already seen that from the version pinning output.
 
 
 #### Try a manual install
@@ -1011,8 +1022,8 @@ Added a hard pin to invalidate the 0.9.0 version that is on pypi:
 
     While:
       Installing instance.
-      Getting distribution for &rsquo;collective.collabora[test]==0.9.1a3&rsquo;.
-    Error: Couldn&rsquo;t find a distribution for &rsquo;collective.collabora[test]==0.9.1a3&rsquo;.
+      Getting distribution for 'collective.collabora[test]==0.9.1a3'.
+    Error: Couldn't find a distribution for 'collective.collabora[test]==0.9.1a3'.
 
 Try to configure `index` instead of `find-links`.
 
@@ -1034,7 +1045,7 @@ Try to configure `index` instead of `find-links`.
 
     root: Not found:
     <https://test.pypi.org/simple/collective.collabora/>
-    root: Couldn&rsquo;t retrieve index page for &rsquo;collective.collabora&rsquo;
+    root: Couldn't retrieve index page for 'collective.collabora'
     root: Scanning index of all packages (this may take a while)
     root: Not found:
     <https://test.pypi.org/simple/>
