@@ -1,16 +1,17 @@
 ---
 title: Cosent
-description: Cosent realizes high-quality full-stack solutions in Quaive and Plone. We have decades of experience with DevOps and the Zope Component Architecture.
+description: Cosent realizes high-quality full-stack solutions in Quaive and Plone.
 showHeader: false
 ---
 
 {{< columns count=2 >}}
 {{< column >}}
-# Social Knowledge Technology
+# Quaive & Plone Solutions
 
 {{< intro >}}
-Cosent realizes high-quality full-stack solutions in [Quaive](https://quaive.com) and [Plone](https://plone.com).
-We have decades of experience with DevOps and the Zope Component Architecture.
+Cosent realizes high-quality full-stack solutions in [Quaive](https://quaive.com) and [Plone](https://plone.org).
+You can count on us to deliver successful outcomes, across all aspects
+of the digital project life cycle.
 {{< /intro >}}
 
 {{< /column >}}

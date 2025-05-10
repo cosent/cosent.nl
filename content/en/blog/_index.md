@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-description: ""
+description: "Cosent Blog — Software Architecture & Engineering in Plone and Quaive."
 ---
 
 {{< intro >}}

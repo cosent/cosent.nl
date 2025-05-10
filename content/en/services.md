@@ -1,15 +1,15 @@
 ---
 title: Services
-description:
+description: "Cosent provides design, development and devops services across the lifecycle of Quaive and Plone software projects."
+
 ---
 
 {{< intro >}}
-You can call on us for full project realizations. You can also hire our expertise to fill specific gaps in your capabilities for interim projects.
+We provide design, development and devops services across the lifecycle of [Quaive](https://quaive.com) and [Plone](https://plone.org) software projects.
 {{< /intro >}}
 
 ## Solution Realization Process
-
-We support Quaive and other Plone based platforms, throughout their full solution realization lifecycle.
+You can call on us for full project realizations. You can also hire our expertise to fill specific gaps in your capabilities for interim projects.
 
 {{< img src="/img/processmodel.png" alt="Intranet Realization" loading="eager" >}}
 

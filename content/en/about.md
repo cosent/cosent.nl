@@ -1,6 +1,6 @@
 ---
 title: About Cosent
-description:
+description: Cosent BV is a Dutch limited liability company, registered in Maastricht NL.
 showHeader: false
 ---
 
@@ -27,9 +27,9 @@ Cosent BV is a Dutch limited liability company, registered in Maastricht NL.
 
 Cosent is a founding partner of [Quaive](https://quaive.com) and supports Quaive clients throughout Europe.
 
-We've been working with Plone since 2004. [Get in touch](/contact/) if you need Plone support.
+We provide [design, development and devops services](/services/) across the lifecycle of Quaive and Plone software projects.
 
-We provide [design, development and devops services](/services/) across the lifecycle of complex software projects.
+We've been working with Plone since 2004. [Get in touch](/contact/) if you need Plone support.
  
 ## Partners
 
