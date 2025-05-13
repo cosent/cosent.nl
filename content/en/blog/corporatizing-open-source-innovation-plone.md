@@ -6,8 +6,10 @@ author: guidostevens
 ---
 
 {{< intro >}}
-A social network analysis of the commit histories in the Zope and Plone development repositories.
+A social network analysis of the commit histories in the Zope and Plone software repositories.
 {{< /intro >}}
+
+> Kuk, G. & Stevens, G.. (2010). Corporatizing open source software innovation in the plone community. 16th Americas Conference on Information Systems 2010, AMCIS 2010. 4. 2688-2698. 
 
 Increasingly open source (OS) software development is organized in a way similar
 to how a corporation would organize development. This paper examines this
@@ -31,6 +33,4 @@ suggesting that corporatizing OS development had the effect of weakening the
 social organizing among developers, and shifted the patterns of contributions to
 adhere with the technical requirements.
 
-**Kuk, G. & Stevens, G.. (2010). Corporatizing open source software innovation in the plone community. 16th Americas Conference on Information Systems 2010, AMCIS 2010. 4. 2688-2698.** 
-
-{{< button link="/pdf/corporatizing-open-source-software-innovation-in-the-Plone-community.pdf" text="Download research paper (PDF)" >}}
+{{< button link="/pdf/corporatizing-open-source-software-innovation-in-the-Plone-community.pdf" text="Download paper (PDF)" >}}

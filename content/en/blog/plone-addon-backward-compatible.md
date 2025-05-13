@@ -460,7 +460,7 @@ The configuration is defined in two places.
 
 ### gh-actions in tox.ini
 
-The plugin requires some configuration in tox.ini to be set.
+The plugin requires some configuration in [tox.ini](https://github.com/collective/collective.collabora/blob/main/tox.ini) to be set.
 
 
 ``` ini
@@ -550,7 +550,7 @@ I found and tried a number of documented workarounds, but none of them actually 
 ## Python 2.7
 
 I've worked with Plone since it was in version 2.1. Back in the day, we did a good number of projects in Plone 4 on Python 2.7.
-But that was a loooong time ago.
+But that was a *loooong* time ago.
 
 Because Plone provided a clear and structured upgrade path from Plone 4 to Plone 6, I could backport the collective.collabora package
 in discrete steps, by reversing the upgrade path:
