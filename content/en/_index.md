@@ -1,6 +1,6 @@
 ---
 title: Cosent
-description: Cosent realizes high-quality full-stack solutions in Quaive and Plone.
+description: "Cosent realizes high-quality full-stack solutions in Quaive and Plone. You can count on us to deliver successful outcomes, across all aspects of the digital project life cycle."
 showHeader: false
 ---
 
