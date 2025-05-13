@@ -5,7 +5,9 @@ date: 2022-03-22
 author: guidostevens
 ---
 
+{{< intro >}}
 The central theme of this talk is: time. How do you architect a software product to get better and better in the long run?
+{{< /intro >}}
 
 There are simple answers to that question. And then there's reality.
 
