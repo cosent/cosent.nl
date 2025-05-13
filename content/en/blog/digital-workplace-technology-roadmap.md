@@ -3,6 +3,7 @@ title: "Systems of Intent — Digital Workplace Technology Roadmap"
 description: ""
 date: 2013-11-04
 author: guidostevens
+images: ["/img/dwtr_model.svg"]
 ---
 
 {{< intro >}}

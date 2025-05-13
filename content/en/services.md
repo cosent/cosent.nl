@@ -1,7 +1,7 @@
 ---
 title: Services
 description: "Cosent provides design, development and devops services across the lifecycle of Quaive and Plone software projects."
-
+images: ["/img/processmodel.png"]
 ---
 
 {{< intro >}}
