@@ -1,8 +1,8 @@
 ---
 title: About Cosent
 description: Cosent BV was founded in 2009 by Guido Stevens, to enhance our collective intelligence by improving knowledge flows in networked organizations.
-
 showHeader: false
+summary: Cosent BV was founded in 2009 by Guido Stevens, to enhance our collective intelligence by improving knowledge flows in networked organizations.
 ---
 
 {{< columns count=2 >}}

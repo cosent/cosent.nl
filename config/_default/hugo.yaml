@@ -6,7 +6,7 @@ title: "Cosent"
 # Default time zone for time stamps; use any valid tz database name: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
 timeZone: "Europe/Amsterdam"
 # Defines the minimum amount of words to reddened in a summary
-summaryLength: 50
+summaryLength: 10
 
 ######################## i18n ####################
 # Auto-detect Chinese/Japanese/Korean Languages in the content. see: https://gohugo.io/getting-started/configuration/#hascjklanguage
