@@ -26,7 +26,7 @@ social_links:
   linkedin: "https://www.linkedin.com/in/guidostevens"
   mastodon: ""
   pinterest: ""
-  rss: ""
+  rss: "/index.xml"
   slack: ""
   stackoverflow: ""
   threads: ""
