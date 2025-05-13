@@ -30,6 +30,9 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    style: tokyonight-night
+
 
 ######################## github pages #######################
 caches:

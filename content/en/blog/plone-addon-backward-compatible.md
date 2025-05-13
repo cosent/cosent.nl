@@ -102,25 +102,29 @@ Includes `pytest` based tests outside of `src`.
 
 3.  Usage
 
-        pipenv install pyscaffold
-        putup collective.collabora
-        cd collective.collabora
-        tox
-    
+    ``` sh
+    pipenv install pyscaffold
+    putup collective.collabora
+    cd collective.collabora
+    tox
+    ```
+
     No questions asked!
 
 4.  Further tuning
 
     1.  Turn into a namespaced package
-    
-            rg -l collectivecollabora . | xargs sed -i -e 's/collectivecollabora/collective.collabora/g'
-            sed -i -e 's#src/collective.collabora#src/collective/collabora#' src/docs/conf.py
-            cd src
-            mkdir collective
-            git mv collectivecollabora/ collective/collabora
-            cd ..
-            tox
-            git commit -am "Turn package into a namespaced package"
+
+        ``` sh
+        rg -l collectivecollabora . | xargs sed -i -e 's/collectivecollabora/collective.collabora/g'
+        sed -i -e 's#src/collective.collabora#src/collective/collabora#' src/docs/conf.py
+        cd src
+        mkdir collective
+        git mv collectivecollabora/ collective/collabora
+        cd ..
+        tox
+        git commit -am "Turn package into a namespaced package"
+        ```
         
         This uses implicit namespaces. No need to declare anything.
     
@@ -151,12 +155,14 @@ Includes `unittest` based tests within `src`
 
 3.  Usage
 
-        sudo apt install pipenv
-        pipenv install plonecli
-        pipenv shell
-        plonecli create addon collective.collabora
-        cd collective.collabora
-        tox
+    ``` sh
+    sudo apt install pipenv
+    pipenv install plonecli
+    pipenv shell
+    plonecli create addon collective.collabora
+    cd collective.collabora
+    tox
+    ```
 
 4.  Further tuning
 
@@ -187,10 +193,12 @@ Best match for Plone Classic projects.
 
 3.  Usage
 
-        pipenv install cookieplone
-        pipenv run cookieplone backend_addon
-        cd collective.collabora
-        tox
+    ```sh
+    pipenv install cookieplone
+    pipenv run cookieplone backend_addon
+    cd collective.collabora
+    tox
+    ```
 
 Since I'm not interested in creating content types, but want to create browser views and prefer the more traditional buildout and zope testrunner, this is not a good match for this project.
 
@@ -203,8 +211,10 @@ Since I'm not interested in creating content types, but want to create browser v
     -   Emits a load of Volto code that is not even a valid package
 
 2.  Usage
-
-        pipenv run cookiecutter gh:collective/cookiecutter-plone-starter
+    ``` sh
+    pipenv run cookiecutter gh:collective/cookiecutter-plone-starter
+    ```
+        
 
 Since we're doing Plone Classic here, not React, that's not a good match.
 
@@ -220,18 +230,20 @@ without documenting them.
 ### System dependencies
 I isolate my system dependencies in a docker container. The relevant `Dockerfile` snippet is:
 
-    RUN add-apt-repository ppa:deadsnakes/ppa -y
+``` docker
+RUN add-apt-repository ppa:deadsnakes/ppa -y
 
-    RUN apt-get update && apt-get install -y \
-        python2.7-dev \
-        python3.8-dev python3.8-venv python3.8-distutils \
-        python3.9-dev python3.9-venv python3.9-distutils \
-        python3.10-dev python3.10-venv python3.10-distutils \
-        python3.11-dev python3.11-venv python3.11-distutils \
-        python3.12-dev python3.12-venv \
-        python3.13-dev python3.13-venv
+RUN apt-get update && apt-get install -y \
+    python2.7-dev \
+    python3.8-dev python3.8-venv python3.8-distutils \
+    python3.9-dev python3.9-venv python3.9-distutils \
+    python3.10-dev python3.10-venv python3.10-distutils \
+    python3.11-dev python3.11-venv python3.11-distutils \
+    python3.12-dev python3.12-venv \
+    python3.13-dev python3.13-venv
 
-    RUN pip3 install tox black==22.8.0 pre-commit future zest.releaser i18ndude sphinx
+RUN pip3 install tox black==22.8.0 pre-commit future zest.releaser i18ndude sphinx
+```
 
 That's for an image based on `ubuntu:22.04`.
 This gets me all the required Python versions and the tooling I need that are not part of the package requirements itself.
@@ -325,11 +337,13 @@ deps =
 When running a specific version to test, say `tox -e py312-Plone61`, tox first provisions a dedicated virtualenv for this version. 
 Then (removing the plumbing of directory paths here for readability) the execution boils down to:
 
-    pip install -rrequirements_plone61.txt
-    buildout bootstrap
-    buildout install test
-    coverage run test
-    coverage report -m
+``` sh
+pip install -rrequirements_plone61.txt
+buildout bootstrap
+buildout install test
+coverage run test
+coverage report -m
+```
 
 Note that `requirements_plone61.txt` itself applies the constraints: `-c constraints_plone61.txt`, which in turn pulls in the upstream constraints: `-c https://dist.plone.org/release/6.1-latest/constraints.txt`. In addition, the local requirements and constraints contain version pins for our own tooling.
 
@@ -342,15 +356,17 @@ What's important, is that Tox is not just good at managing test environments —
 
 To get a specific development environment up and running, these are the steps executed if you invoke: `make start61`:
 
-    tox --devenv ./dev61 -e py312-Plone61
-    ./dev61/bin/pip install -r requirements_plone61.txt
-	./dev61/bin/buildout -c ./dev_plone61.cfg \
-        buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
-        bootstrap
-	./dev61/bin/buildout -c ./dev_plone61.cfg \
-        buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
-        install
-    ./dev61/bin/instance fg
+``` sh
+tox --devenv ./dev61 -e py312-Plone61
+./dev61/bin/pip install -r requirements_plone61.txt
+./dev61/bin/buildout -c ./dev_plone61.cfg \
+    buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
+    bootstrap
+./dev61/bin/buildout -c ./dev_plone61.cfg \
+    buildout:directory=$(CURDIR)/dev61 buildout:develop=$(CURDIR) \
+    install
+./dev61/bin/instance fg
+```
 
 The main additional trick I performed for the development configurations, is to each put them on a distinct port, so that I can easily run the stack in four different version flavours, each in its own browser tab. `dev_plone61.cfg` configures Plone61 to run on `:6180`:
 
@@ -599,7 +615,7 @@ standard_library.install_aliases()
 
 ### Not so super
 
-Newsuper throws an infinite loop in py27.
+Newsuper throws an infinite loop in py27. Fixed by using old-style explicit `super(cls, self)`:
 
 ```python
 super(BrowserView, self).__init__(context, request)
@@ -693,6 +709,8 @@ I then created and registered [adapters for this interface](https://github.com/c
 @implementer(IStoredFile)
 class DXStoredFile(object):
     """Access the file storage on a Dexterity content object.
+
+...
 ```
 
 ```python
@@ -700,6 +718,8 @@ class DXStoredFile(object):
 @implementer(IStoredFile)
 class ATStoredFile(object):
     """Access the file storage on a Archetypes content object.
+    
+...
 ```
 
 This then encapsulates and shields us from the weirdness in Archetypes, where the `File` content type contains a `file` field,
@@ -859,28 +879,30 @@ That's [documented on Twine](https://twine.readthedocs.io/en/stable/).
 
 #### Fix the namespace error
 
-    diff --git a/setup.py b/setup.py
-    index 16d132b..1ff7241 100644
-    --- a/setup.py
-    +++ b/setup.py
-    @@ -1,7 +1,7 @@
-     # -*- coding: utf-8 -*-
-     """Installer for the collective.collabora package."""
-    
-    -from setuptools import find_packages
-    +from setuptools import find_namespace_packages
-     from setuptools import setup
-    
-    
-    @@ -50,7 +50,7 @@ setup(
-             "Documentation": "https://collective.collabora.readthedocs.io/en/latest/",
-         },
-         license="GPL version 2",
-    -    packages=find_packages("src", exclude=["ez_setup"]),
-    +    packages=find_namespace_packages("src", exclude=["ez_setup"]),
-         # keep deprecated namespace_packages for backward compatibility
-         namespace_packages=["collective"],
-         package_dir={"": "src"},
+```diff
+diff --git a/setup.py b/setup.py
+index 16d132b..1ff7241 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,7 +1,7 @@
+ # -*- coding: utf-8 -*-
+ """Installer for the collective.collabora package."""
+
+-from setuptools import find_packages
++from setuptools import find_namespace_packages
+ from setuptools import setup
+
+
+@@ -50,7 +50,7 @@ setup(
+         "Documentation": "https://collective.collabora.readthedocs.io/en/latest/",
+     },
+     license="GPL version 2",
+-    packages=find_packages("src", exclude=["ez_setup"]),
++    packages=find_namespace_packages("src", exclude=["ez_setup"]),
+     # keep deprecated namespace_packages for backward compatibility
+     namespace_packages=["collective"],
+     package_dir={"": "src"},
+```
 
 #### Build
 
@@ -906,10 +928,12 @@ Upload. Got an error `403 Invalid or non-existent authentication information.` T
 
 Resulting `.pypirc` stanza:
 
-    [testpypi]
-    repository = https://test.pypi.org/legacy/
-    username = __token__
-    password = pypi-AgE....
+``` ini
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = __token__
+password = pypi-AgE....
+```
 
 Upload. Wheel gives a `200 OK` but .tar.gz gives a `400 Bad Request`:
 
@@ -926,18 +950,20 @@ First reproduce the issue without uploading:
 
 Configure the long description content type.
 
-    diff --git a/setup.py b/setup.py
-    index 0fe0259..d8916b0 100644
-    --- a/setup.py
-    +++ b/setup.py
-    @@ -18,6 +18,7 @@ setup(
-         version="0.9.1a2",
-         description="Collabora Online integration for Plone",
-         long_description=long_description,
-    +    long_description_content_type="text/x-rst",
-         # Get more from https://pypi.org/classifiers/
-         classifiers=[
-             "Development Status :: 4 - Beta",
+``` diff
+diff --git a/setup.py b/setup.py
+index 0fe0259..d8916b0 100644
+--- a/setup.py
++++ b/setup.py
+@@ -18,6 +18,7 @@ setup(
+     version="0.9.1a2",
+     description="Collabora Online integration for Plone",
+     long_description=long_description,
++    long_description_content_type="text/x-rst",
+     # Get more from https://pypi.org/classifiers/
+     classifiers=[
+         "Development Status :: 4 - Beta",
+```
 
 Rebuild:
 
@@ -969,17 +995,19 @@ Fails because the wheel already exists. Upload only the .tar.gz:
 I already had put in place egg-based buildouts.
 Now I need to get them to load alpha releases from testpypi:
 
-    diff --git a/base.cfg b/base.cfg
-    index 27a30a9..03e0cea 100644
-    --- a/base.cfg
-    +++ b/base.cfg
-    @@ -1,6 +1,10 @@
-     [buildout]
-     show-picked-versions = true
-    
-    +# remove these after testing the build
-    +find-links += https://test.pypi.org/simple
-    +prefer-final = false
+```diff
+diff --git a/base.cfg b/base.cfg
+index 27a30a9..03e0cea 100644
+--- a/base.cfg
++++ b/base.cfg
+@@ -1,6 +1,10 @@
+ [buildout]
+ show-picked-versions = true
+
++# remove these after testing the build
++find-links += https://test.pypi.org/simple
++prefer-final = false
+```
 
 `❯❯ make clean eggs`
 
@@ -1006,17 +1034,17 @@ Cleanup:
 #### Buildout again
 
 Added a hard pin to invalidate the 0.9.0 version that is on pypi:
-
-    diff --git a/base.cfg b/base.cfg
-    index 03e0cea..1947d9f 100644
-    --- a/base.cfg
-    +++ b/base.cfg
-    @@ -110,4 +110,4 @@ scripts =
-    
-     [versions]
-     # Don't use a released version of collective.collabora
-    -collective.collabora =
-    +collective.collabora = 0.9.1a3
+``` diff
+diff --git a/base.cfg b/base.cfg
+index 03e0cea..1947d9f 100644
+--- a/base.cfg
++++ b/base.cfg
+@@ -110,4 +110,4 @@ scripts =
+ [versions]
+ # Don't use a released version of collective.collabora
+-collective.collabora =
++collective.collabora = 0.9.1a3
+```
 
 `❯❯ rm -rf egg61 && make egg61`
 
@@ -1027,19 +1055,21 @@ Added a hard pin to invalidate the 0.9.0 version that is on pypi:
 
 Try to configure `index` instead of `find-links`.
 
-    diff --git a/base.cfg b/base.cfg
-    index 03e0cea..814aed8 100644
-    --- a/base.cfg
-    +++ b/base.cfg
-    @@ -2,7 +2,7 @@
-     show-picked-versions = true
-    
-     # remove these after testing the build
-    -find-links += https://test.pypi.org/simple
-    +index += https://test.pypi.org/simple
-     prefer-final = false
-    
-     parts =
+``` diff
+diff --git a/base.cfg b/base.cfg
+index 03e0cea..814aed8 100644
+--- a/base.cfg
++++ b/base.cfg
+@@ -2,7 +2,7 @@
+ show-picked-versions = true
+
+ # remove these after testing the build
+-find-links += https://test.pypi.org/simple
++index += https://test.pypi.org/simple
+ prefer-final = false
+
+ parts =
+```
 
 `❯❯ rm -rf egg61 && make egg61`
 
@@ -1054,20 +1084,22 @@ Scanning that page in Firefox shows a long package list. Which does **not** cont
 
 After some iterations on `base.cfg` I got it to work. This is the cumulative `base.cfg` diff:
 
-    diff --git a/base.cfg b/base.cfg
-    index 03e0cea..4711a04 100644
-    --- a/base.cfg
-    +++ b/base.cfg
-    @@ -2,7 +2,8 @@
-     show-picked-versions = true
-    
-     # remove these after testing the build
-    -find-links += https://test.pypi.org/simple
-    +index = https://test.pypi.org/simple/
-    +find-links += https://test.pypi.org/simple/
-     prefer-final = false
-    
-     parts =
+``` diff
+diff --git a/base.cfg b/base.cfg
+index 03e0cea..4711a04 100644
+--- a/base.cfg
++++ b/base.cfg
+@@ -2,7 +2,8 @@
+ show-picked-versions = true
+
+ # remove these after testing the build
+-find-links += https://test.pypi.org/simple
++index = https://test.pypi.org/simple/
++find-links += https://test.pypi.org/simple/
+ prefer-final = false
+
+ parts =
+```
 
 No version pin needed.
 
@@ -1092,24 +1124,26 @@ That breaks on python 2.7.
 
 #### Use find-packages
 
-    diff --git a/setup.py b/setup.py
-    index 587da9c..a5b144b 100644
-    --- a/setup.py
-    +++ b/setup.py
-    @@ -1,7 +1,14 @@
-     # -*- coding: utf-8 -*-
-     """Installer for the collective.collabora package."""
-    
-    -from setuptools import find_namespace_packages
-    +try:
-    +    # find_packages errors out on py3 on non-python packages
-    +    from setuptools import find_namespace_packages
-    +except ImportError:
-    +    # python 2.7 has no find_namespace_packages
-    +    # but works fine with find_packages
-    +    from setuptools import find_packages as find_namespace_packages
-    +
-     from setuptools import setup
+```diff
+diff --git a/setup.py b/setup.py
+index 587da9c..a5b144b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,7 +1,14 @@
+ # -*- coding: utf-8 -*-
+ """Installer for the collective.collabora package."""
+
+-from setuptools import find_namespace_packages
++try:
++    # find_packages errors out on py3 on non-python packages
++    from setuptools import find_namespace_packages
++except ImportError:
++    # python 2.7 has no find_namespace_packages
++    # but works fine with find_packages
++    from setuptools import find_packages as find_namespace_packages
++
+ from setuptools import setup
+```
      
 #### Verify the release roundtrip
 
@@ -1153,53 +1187,54 @@ The build/release/buildout cycle now works correctly.
 #### final diff solving all build problems
 Resulting diff, with only the relevant changes (excluding the testpypi and testing non-final releases bits):
 
-    diff --git a/pyproject.toml b/pyproject.toml
-    new file mode 100644
-    index 0000000..360343a
-    --- /dev/null
-    +++ b/pyproject.toml
-    @@ -0,0 +1,3 @@
-    +[build-system]
-    +requires = ["setuptools<69"]
-    +build-backend = "setuptools.build_meta"
-    
-    diff --git a/setup.py b/setup.py
-    index 9b81151..2b8d96a 100644
-    --- a/setup.py
-    +++ b/setup.py
-    @@ -1,7 +1,14 @@
-     # -*- coding: utf-8 -*-
-     """Installer for the collective.collabora package."""
-    
-    -from setuptools import find_packages
-    +try:
-    +    # find_packages errors out on py3 on non-python packages
-    +    from setuptools import find_namespace_packages
-    +except ImportError:
-    +    # python 2.7 has no find_namespace_packages
-    +    # but works fine with find_packages
-    +    from setuptools import find_packages as find_namespace_packages
-    +
-     from setuptools import setup
-    
-    
-    @@ -18,6 +25,7 @@ setup(
-         version="0.9.1.dev0",
-         description="Collabora Online integration for Plone",
-         long_description=long_description,
-    +    long_description_content_type="text/x-rst",
-         # Get more from https://pypi.org/classifiers/
-         classifiers=[
-             "Development Status :: 4 - Beta",
-    @@ -50,7 +58,7 @@ setup(
-             "Documentation": "https://collective.collabora.readthedocs.io/en/latest/",
-         },
-         license="GPL version 2",
-    -    packages=find_packages("src", exclude=["ez_setup"]),
-    +    packages=find_namespace_packages("src", exclude=["ez_setup"]),
-         # keep deprecated namespace_packages for backward compatibility
-         namespace_packages=["collective"],
-         package_dir={"": "src"},
+``` diff
+diff --git a/pyproject.toml b/pyproject.toml
+new file mode 100644
+index 0000000..360343a
+--- /dev/null
++++ b/pyproject.toml
+@@ -0,0 +1,3 @@
++[build-system]
++requires = ["setuptools<69"]
++build-backend = "setuptools.build_meta"
+
+diff --git a/setup.py b/setup.py
+index 9b81151..2b8d96a 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,7 +1,14 @@
+ # -*- coding: utf-8 -*-
+ """Installer for the collective.collabora package."""
+
+-from setuptools import find_packages
++try:
++    # find_packages errors out on py3 on non-python packages
++    from setuptools import find_namespace_packages
++except ImportError:
++    # python 2.7 has no find_namespace_packages
++    # but works fine with find_packages
++    from setuptools import find_packages as find_namespace_packages
++
+ from setuptools import setup
+
+@@ -18,6 +25,7 @@ setup(
+     version="0.9.1.dev0",
+     description="Collabora Online integration for Plone",
+     long_description=long_description,
++    long_description_content_type="text/x-rst",
+     # Get more from https://pypi.org/classifiers/
+     classifiers=[
+         "Development Status :: 4 - Beta",
+@@ -50,7 +58,7 @@ setup(
+         "Documentation": "https://collective.collabora.readthedocs.io/en/latest/",
+     },
+     license="GPL version 2",
+-    packages=find_packages("src", exclude=["ez_setup"]),
++    packages=find_namespace_packages("src", exclude=["ez_setup"]),
+     # keep deprecated namespace_packages for backward compatibility
+     namespace_packages=["collective"],
+     package_dir={"": "src"},
+```
 
 
 ## Publishing the documentation
