@@ -2,7 +2,7 @@ en:
   languageName: English
   weight: 1
   ### copyright (markdown can be used) ###
-  copyright: "Copyright &copy; {{< current_year >}} Cosent BV. Website based on [Dot Org Theme](https://github.com/cncf/dot-org-hugo-theme) for Hugo by [CNCF](https://www.cncf.io)."
+  copyright: "Copyright &copy; {{< current_year >}} Cosent BV."
   title: "Cosent"
   params:
     description: "Cosent realizes high-quality full-stack solutions in Quaive and Plone. We have decades of experience with DevOps and the Zope Component Architecture."
