@@ -3,7 +3,7 @@
 # Add custom assets relative to /static or via https
 logo_on_white: "/img/logo-cropped.png"
 logo_on_black: "/img/logo-onblack-transparent.png"
-custom_js: ["/js/twipla-analytics.js"]
+custom_js: []
 custom_css: []
 
 ######################## custom config ####################
