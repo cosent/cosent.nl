@@ -45,3 +45,132 @@ command = """\
     from = "/blog/plonesocial-roadmap-ploneconf2013/"
     to = "/blog/plonesocial-ploneconf2013/"
 
+[[redirects]]
+    from = "/en/blog/digitalagenda"
+    to = "/blog/digitalagenda/"
+[[redirects]]
+    from = "/en/blog/plone-goes-social"
+    to = "/blog/plone-goes-social/"
+[[redirects]]
+    from = "/en/blog/organizational-learning-serious-gaming"
+    to = "/blog/organizational-learning-serious-gaming/"
+[[redirects]]
+    from = "/en/blog/benchmark-knowledge-strategy"
+    to = "/blog/benchmark-knowledge-strategy/"
+[[redirects]]
+    from = "/en/blog/agile-design-paper-prototyping"
+    to = "/blog/agile-design-paper-prototyping/"
+[[redirects]]
+    from = "/en/blog/enterprise-design"
+    to = "/blog/enterprise-design/"
+[[redirects]]
+    from = "/en/blog/enterprise-2.0-and-complexity-risks"
+    to = "/blog/enterprise-2.0-and-complexity-risks/"
+[[redirects]]
+    from = "/en/blog/social-intranet-sprint-berlin"
+    to = "/blog/social-intranet-sprint-berlin/"
+[[redirects]]
+    from = "/en/blog/intranet-best-practices-presentations"
+    to = "/blog/intranet-best-practices-presentations/"
+[[redirects]]
+    from = "/enterprise-2.0/intranet-best-practices-presentations"
+    to = "/blog/intranet-best-practices-presentations/"
+[[redirects]]
+    from = "/en/blog/social-technology-mckinsey"
+    to = "/blog/social-technology-mckinsey/"
+[[redirects]]
+    from = "/en/blog/social-media-changes-organizations"
+    to = "/blog/social-media-changes-organizations/"
+[[redirects]]
+    from = "/en/blog/expressive-service-blueprinting"
+    to = "/blog/expressive-service-blueprinting/"
+[[redirects]]
+    from = "/en/blog/plone-gitlab-continuous-integration"
+    to = "/blog/plone-gitlab-continuous-integration/"
+[[redirects]]
+    from = "/en/blog/death-sharepoint-intranet-alternatives"
+    to = "/blog/death-sharepoint-intranet-alternatives/"
+[[redirects]]
+    from = "/en/blog/plog2014"
+    to = "/blog/plog2014/"
+[[redirects]]
+    from = "/en/blog/3-signs-communications-off-track-fix-with-personas"
+    to = "/blog/3-signs-communications-off-track-fix-with-personas/"
+[[redirects]]
+    from = "/en/blog/email-network-analysis"
+    to = "/blog/email-network-analysis/"
+[[redirects]]
+    from = "/en/blog/webcast-enterprise20-organizational-learning"
+    to = "/blog/webcast-enterprise20-organizational-learning/"
+[[redirects]]
+    from = "/en/blog/connecting-creates-value"
+    to = "/blog/connecting-creates-value/"
+[[redirects]]
+    from = "/en/blog/design-culture-change"
+    to = "/blog/design-culture-change/"
+[[redirects]]
+    from = "/en/blog/enterprise-20-business-case-part2"
+    to = "/blog/enterprise-20-business-case-part2/"
+[[redirects]]
+    from = "/en/blog/innovation-programme-participation"
+    to = "/blog/innovation-programme-participation/"
+[[redirects]]
+    from = "/en/blog/plone-intranet-munchen-sprint"
+    to = "/blog/plone-intranet-munchen-sprint/"
+[[redirects]]
+    from = "/en/blog/agile-change-management"
+    to = "/blog/agile-change-management/"
+[[redirects]]
+    from = "/en/blog/plonesocial-plog2013"
+    to = "/blog/plonesocial-plog2013/"
+[[redirects]]
+    from = "/en/blog/sustainable-networking"
+    to = "/blog/sustainable-networking/"
+[[redirects]]
+    from = "/en/blog/designing-open-source-social-intranet"
+    to = "/blog/designing-open-source-social-intranet/"
+[[redirects]]
+    from = "/en/blog/change-factory-knowledge-platform"
+    to = "/blog/change-factory-knowledge-platform/"
+[[redirects]]
+    from = "/en/blog/enterprise-20-business-case-part1"
+    to = "/blog/enterprise-20-business-case-part1/"
+[[redirects]]
+    from = "/en/blog/crowdsourcing-smart-cities"
+    to = "/blog/crowdsourcing-smart-cities/"
+[[redirects]]
+    from = "/en/blog/enterprise-20-organizational-development"
+    to = "/blog/enterprise-20-organizational-development/"
+[[redirects]]
+    from = "/en/blog/ploneintranet-theme"
+    to = "/blog/ploneintranet-theme/"
+[[redirects]]
+    from = "/en/blog/disrupted-organization"
+    to = "/blog/disrupted-organization/"
+[[redirects]]
+    from = "/en/blog/social-intranet-vibrant-market"
+    to = "/blog/social-intranet-vibrant-market/"
+[[redirects]]
+    from = "/en/blog/social-network-currencies"
+    to = "/blog/social-network-currencies/"
+[[redirects]]
+    from = "/en/blog/monkey-patching-good-bad-ugly"
+    to = "/blog/monkey-patching-good-bad-ugly/"
+[[redirects]]
+    from = "/en/blog/user-centered-redesign"
+    to = "/blog/user-centered-redesign/"
+[[redirects]]
+    from = "/en/blog/social-networking-disruption"
+    to = "/blog/social-networking-disruption/"
+[[redirects]]
+    from = "/en/blog/enterprise-20-business-case-part3"
+    to = "/blog/enterprise-20-business-case-part3/"
+[[redirects]]
+    from = "/en/blog/guruscan-knowledge-management-plone"
+    to = "/blog/guruscan-knowledge-management-plone/"
+[[redirects]]
+    from = "/en/blog/plone-intranet-plan-to-reality"
+    to = "/blog/plone-intranet-plan-to-reality/"
+[[redirects]]
+    from = "/en/blog/plone-intranet-consortium"
+    to = "/blog/plone-intranet-consortium/"
