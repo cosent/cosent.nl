@@ -16,3 +16,35 @@ command = """\
   hugo --gc --minify && \
   npm_config_yes=true npx pagefind --site 'public' --output-subdir 'pagefind'
   """
+
+[[redirects]]
+    from = "/en/blog/future-knowledge-work.html"
+    to = "/blog/future-knowledge-work"
+
+[[redirects]]
+    from = "/blog/digital-workplace-technology-roadmap.html"
+    to = "/blog/future-knowledge-work"
+
+[[redirects]]
+    from = "/en/blog/high-availability-high-performance-plone.html"
+    to = "/blog/high-availability-high-performance-plone"
+
+[[redirects]]
+    from = "/blog/high-availability-high-performance-ploneconf2013"
+    to = "/blog/high-availability-high-performance-plone"
+
+[[redirects]]
+    from = "/en/blog/future-knowledge-work.html"
+    to = "/blog/future-knowledge-work"
+
+[[redirects]]
+    from = "/blog/corporatizing-open-source-innovation-plone"
+    to = "/blog/future-knowledge-work"
+
+[[redirects]]
+    from = "/en/blog/plonesocial-ploneconf2013.html"
+    to = "/blog/plonesocial-ploneconf2013"
+
+[[redirects]]
+    from = "/blog/plonesocial-roadmap-ploneconf2013"
+    to = "/blog/plonesocial-ploneconf2013"
