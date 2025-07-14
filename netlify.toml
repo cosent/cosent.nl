@@ -20,31 +20,27 @@ command = """\
 [[redirects]]
     from = "/en/blog/future-knowledge-work.html"
     to = "/blog/future-knowledge-work"
-
 [[redirects]]
-    from = "/blog/digital-workplace-technology-roadmap.html"
+    from = "/blog/digital-workplace-technology-roadmap"
     to = "/blog/future-knowledge-work"
 
 [[redirects]]
     from = "/en/blog/high-availability-high-performance-plone.html"
     to = "/blog/high-availability-high-performance-plone"
-
 [[redirects]]
     from = "/blog/high-availability-high-performance-ploneconf2013"
     to = "/blog/high-availability-high-performance-plone"
 
 [[redirects]]
-    from = "/en/blog/future-knowledge-work.html"
-    to = "/blog/future-knowledge-work"
-
+    from = "/en/blog/plone-software-ecology.html"
+    to = "/blog/plone-software-ecology"
 [[redirects]]
     from = "/blog/corporatizing-open-source-innovation-plone"
-    to = "/blog/future-knowledge-work"
+    to = "/blog/plone-software-ecology"
 
 [[redirects]]
     from = "/en/blog/plonesocial-ploneconf2013.html"
     to = "/blog/plonesocial-ploneconf2013"
-
 [[redirects]]
     from = "/blog/plonesocial-roadmap-ploneconf2013"
     to = "/blog/plonesocial-ploneconf2013"
