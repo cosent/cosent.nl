@@ -3,7 +3,7 @@ DART_SASS_VERSION = "1.89.2"
 GO_VERSION = "1.24.2"
 HUGO_VERSION = "0.148.0"
 NODE_VERSION = "22"
-TZ = "America/Los_Angeles"
+TZ = "Europe/Amsterdam"
 
 [build]
 publish = "public"
@@ -16,6 +16,10 @@ command = """\
   hugo --gc --minify && \
   npm_config_yes=true npx pagefind --site 'public' --output-subdir 'pagefind'
   """
+
+[[redirects]]
+    from = "/en/resources/digital-workplace-technology-roadmap"
+    to = "/roadmap/"
 
 [[redirects]]
     from = "/en/blog/future-knowledge-work"
